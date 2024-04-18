@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { margin: 0; }
+        .texto-3d {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'MiFuente';
+        font-size: 120px;
+        letter-spacing: 15px;
+        text-transform: uppercase;
+        -webkit-box-reflect: below 1px linear-gradient(transparent, #0004) ;
+        color: #0e3742;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        }
+        @font-face {
+        font-family: 'MiFuente';
+        src: url('fonts/FuturaPTLight.otf') format('otf'); /* Agrega más formatos si es necesario */
+        /* Agrega otros estilos si lo deseas, como el peso de la fuente (normal, bold), el estilo (normal, italic), etc. */
+        }
+    </style>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "/modules/three.module.js"
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <script type="module" src="index.js"></script>
+    <div id="titulo" class="texto-3d">El problema de los n cuerpos</div>
+    <div id="parrafo1" class="texto-3d">hola</div>
+    <div id="parrafo2" class="texto-3d">hola2</div>
+</body>
+</html>
