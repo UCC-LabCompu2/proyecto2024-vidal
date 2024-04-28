@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
+import FakeGlowMaterial from './FakeGlowMaterials';
 
 let scene, camera, renderer, starsParticles;
 let planets = [];
@@ -80,7 +81,8 @@ function init() {
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
-
+    const FakeGlowMaterial = new FakeGlowMaterial();
+    
     camera.position.z = 200;
 
     const backgroundLoader = new THREE.TextureLoader();
@@ -136,7 +138,7 @@ function createStars() {
     return particles;
 }
 function onScroll(event){
-    const delta = event.deltaY * 0.01;
+    const delta = event.deltaY * 0.05;
     camera.position.z += delta;
 }
 
