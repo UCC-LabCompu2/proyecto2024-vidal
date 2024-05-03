@@ -38,7 +38,6 @@ class Planeta {
         // Material para el centro sólido
         const solidMaterial = new THREE.MeshStandardMaterial({ color: color });
 
-
         // Material para el borde con glow
         const glowMaterial = new FakeGlowMaterial({
             glowColor: new THREE.Color(color),
@@ -46,7 +45,6 @@ class Planeta {
 
         // Crear la geometría de la esfera
         const geometry = new THREE.SphereGeometry(scale, 32, 32);
-
 
 
         // Crear el mesh para el centro sólido
@@ -83,15 +81,17 @@ class Planeta {
         this.solidSphere.rotation.y += 0.01;
         // Actualizar posición de la línea para seguir la órbita
     }
+
 }
 
 function init() {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 20000);
 
-    renderer = new THREE.WebGLRenderer();
+    const canvas = document.querySelector('.webgl');
+    renderer = new THREE.WebGLRenderer({ canvas });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+
     
     camera.position.z = 200;
 
@@ -126,7 +126,7 @@ function init() {
     starsParticles = createStars();
     scene.add(starsParticles);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
     scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0);
@@ -134,6 +134,23 @@ function init() {
     scene.add(directionalLight);
 
     //document.addEventListener('mousemove', onMouseMove, false);
+
+    //animaciones
+    const tl = gsap.timeline({ defaults: {duration: 3}});
+    tl.fromTo(planetaCentral.glowSphere.scale, {z:0,x:0,y:0}, {z:3,x:3,y:3}, 1);
+    tl.fromTo(planetaCentral.solidSphere.scale, {z:0,x:0,y:0}, {z:1,x:1,y:1}, 1);
+    
+    tl.fromTo(planeta1.glowSphere.scale, {z:0,x:0,y:0}, {z:3,x:3,y:3}, 1);
+    tl.fromTo(planeta1.solidSphere.scale, {z:0,x:0,y:0}, {z:1,x:1,y:1}, 1);
+
+    tl.fromTo(planeta2.glowSphere.scale, {z:0,x:0,y:0}, {z:3,x:3,y:3}, 1);
+    tl.fromTo(planeta2.solidSphere.scale, {z:0,x:0,y:0}, {z:1,x:1,y:1}, 1);
+
+    tl.fromTo("nav", {opacity: 0}, {opacity: 1}, 0);
+    tl.fromTo(".title", { fontSize: "0rem"}, {fontSize: "3rem"},0);
+    tl.fromTo(".title", {opacity: "0%"}, {opacity:"80%"}, 0)
+    tl.fromTo(".title", { top: "50%"}, { top: "20%"}, 1);
+
 
     animate();
 }
@@ -169,10 +186,14 @@ function createStars() {
 
 function animate() {
     requestAnimationFrame(animate);
+
+    camera.lookAt(scene.position);
+
     
     planets.forEach((planet, index) => {
         const angleOffset = Math.PI / 2 * index;
         planet.actualizarOrbita(angleOffset, 0.5, 1 + 0.1 * index);
+
     });
 
     renderer.render(scene, camera);

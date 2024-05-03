@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('/fonts/FuturaPTLight.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body, 
+html{
+    overflow-x: hidden;
+    font-family: 'FuturaPT', sans-serif;
+}
+.webgl{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+}
+.title{
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    font-size: 3rem;
+    opacity: 70%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    font-style: bold;
+    text-transform: uppercase;
+
+}
+nav{
+    color: white;
+    z-index: 2;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%, -3%);
+    padding: 4rem 8rem;
+    display: flex;
+    justify-content: space-between;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+    font-style: bold;
+    
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    opacity: 70%;
+    gap: 4rem;
+}
