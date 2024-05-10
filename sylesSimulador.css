@@ -21,6 +21,7 @@ body {
     display: flex;
     flex-direction: column-reverse; 
     height: 100vh;
+    background-color: #58585800;
     column-gap: 5px;
 }
 
@@ -37,15 +38,15 @@ body {
 }
 
 .container {
-
+    height: 30%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-end;
-    background-color: #f0f0f000;
+    align-items: flex-start;
+    background-color: #ff040400;
     padding: 20px;
     z-index: 1000; 
-    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .box {
@@ -103,10 +104,11 @@ input[type="number"]:focus {
     margin-bottom: 5px;
     font-family: 'FuturaPT', sans-serif; 
 }
-
 canvas {
     width: calc(100% - 4px); 
     height: calc(100% - 4px); 
     border: none; 
     display: block; 
 }
+
+
