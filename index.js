@@ -1,5 +1,4 @@
-import * as THREE from 'three';
-import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
 import FakeGlowMaterial from '/FakeGlowMaterials.js';
 
@@ -132,8 +131,6 @@ function init() {
 
     animate();
 }
-
-
 
 function animate() {
     requestAnimationFrame(animate);
