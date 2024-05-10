@@ -1,30 +1,11 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
-import FakeGlowMaterial from './FakeGlowMaterials.js';
+import FakeGlowMaterial from '/FakeGlowMaterials.js';
 
 let scene, camera, renderer, starsParticles;
 let planets = [];
 let orbitAngle = 0;
-
-class Particulas {
-    constructor(position, scale, scene, rutaModelo) {
-        this.scene = scene;
-        this.scale = scale;
-        this.position = position;
-
-        const loader = new GLTFLoader();
-        loader.load(
-            rutaModelo,
-            (gltf) => {
-                gltf.scene.scale.set(this.scale, this.scale, this.scale);
-                gltf.scene.position.copy(position);
-                this.scene.add(gltf.scene);
-                this.particula = gltf.scene;
-            }
-        )
-    }
-}
 
 
 
@@ -114,15 +95,14 @@ function init() {
     scene.add(cube);
 
 
-    const nebulosa = new Particulas(new THREE.Vector3(0, 0, 0), 1, scene, './planetas/nebulosa/scene.gltf');
+    
     const planetaCentral = new Planeta(new THREE.Vector3(0, 0, 0), 40, scene, 0, 0, "#f57011");
     const planeta1 = new Planeta(new THREE.Vector3(20, 0, 0), 15, scene, 120, 1, "#1f65f0");
     const planeta2 = new Planeta(new THREE.Vector3(30, 0, 0), 10, scene, 130, 0, "#f01fb5");
 
     planets.push(planetaCentral, planeta1, planeta2);
 
-    starsParticles = createStars();
-    scene.add(starsParticles);
+
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
     scene.add(ambientLight);
@@ -153,24 +133,6 @@ function init() {
     animate();
 }
 
-function createStars() {
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-
-    const particlesCount = 1000;
-
-    const positions = new Float32Array(particlesCount * 3);
-
-    for (let i = 0; i < particlesCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 1000;
-        positions[i + 1] = (Math.random() - 0.5) * 1000;
-        positions[i + 2] = (Math.random() - 0.5) * 1000;
-    }
-
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    return particles;
-}
 
 
 function animate() {
