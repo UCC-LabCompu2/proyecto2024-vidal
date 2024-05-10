@@ -1,6 +1,6 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
-import FakeGlowMaterial from '/FakeGlowMaterials.js';
+import FakeGlowMaterial from './FakeGlowMaterials.js';
 
 let scene, camera, renderer, starsParticles;
 let planets = [];
