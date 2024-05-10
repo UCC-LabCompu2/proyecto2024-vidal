@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sylesSimulador.css">
+    <title>Mi Página</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "/modules/three.module.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="flex-container">
+        <div class="container">
+            <!-- Primer elemento -->
+            <div class="box">
+                <h2>Cuerpo 1</h2>
+                <!-- Contenedor para la entrada de masa -->
+                <div class="input-container">
+                    <label for="masa1">Masa:</label>
+                    <input type="number" id="masa1" name="masa1" placeholder="Ingrese la masa">
+                </div>
+                <!-- Contenedor para la entrada de velocidad -->
+                <div class="input-container">
+                    <label for="velocidad1">Velocidad:</label>
+                    <input type="number" id="velocidad1" name="velocidad1" placeholder="Ingrese la velocidad">
+                </div>
+                <!-- Contenedor para la barra desplazable de posición X e Y -->
+                <div class="scroll-container">
+                    <label for="scrollX1">Posición X:</label>
+                    <input type="range" id="scrollX1" name="scrollX1" min="-100" max="100" value="0">
+                    <label for="scrollY1">Posición Y:</label>
+                    <input type="range" id="scrollY1" name="scrollY1" min="-100" max="100" value="0">
+                </div>
+            </div>
+            <!-- Segundo elemento -->
+            <div class="box">
+                <h2>Cuerpo 2</h2>
+                <!-- Contenedor para la entrada de masa -->
+                <div class="input-container">
+                    <label for="masa2">Masa:</label>
+                    <input type="number" id="masa2" name="masa2" placeholder="Ingrese la masa">
+                </div>
+                <!-- Contenedor para la entrada de velocidad -->
+                <div class="input-container">
+                    <label for="velocidad2">Velocidad:</label>
+                    <input type="number" id="velocidad2" name="velocidad2" placeholder="Ingrese la velocidad">
+                </div>
+                <!-- Contenedor para la barra desplazable de posición X e Y -->
+                <div class="scroll-container">
+                    <label for="scrollX2">Posición X:</label>
+                    <input type="range" id="scrollX2" name="scrollX2" min="-100" max="100" value="0">
+                    <label for="scrollY2">Posición Y:</label>
+                    <input type="range" id="scrollY2" name="scrollY2" min="-100" max="100" value="0">
+                </div>
+            </div>
+
+            <div class="box">
+                <h2>Cuerpo 3</h2>
+                <!-- Contenedor para la entrada de masa -->
+                <div class="input-container">
+                    <label for="masa3">Masa:</label>
+                    <input type="number" id="masa3" name="masa3" placeholder="Ingrese la masa">
+                </div>
+                <!-- Contenedor para la entrada de velocidad -->
+                <div class="input-container">
+                    <label for="velocidad3">Velocidad:</label>
+                    <input type="number" id="velocidad3" name="velocidad3" placeholder="Ingrese la velocidad">
+                </div>
+                <!-- Contenedor para la barra desplazable de posición X e Y -->
+                <div class="scroll-container">
+                    <label for="scrollX2">Posición X:</label>
+                    <input type="range" id="scrollX2" name="scrollX2" min="-100" max="100" value="0">
+                    <label for="scrollY2">Posición Y:</label>
+                    <input type="range" id="scrollY2" name="scrollY2" min="-100" max="100" value="0">
+                </div>
+            </div>
+        </div>
+        
+        <div id="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+        <script type="module" src="simulador.js"></script>
+    </div>
+</body>
+</html>

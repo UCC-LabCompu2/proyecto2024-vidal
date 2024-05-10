@@ -1,13 +1,14 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
-import FakeGlowMaterial from './FakeGlowMaterials';
+import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
+import FakeGlowMaterial from './FakeGlowMaterials.js';
 
 let scene, camera, renderer, starsParticles;
 let planets = [];
 let orbitAngle = 0;
 
-class Particulas{
-    constructor(position, scale, scene, rutaModelo){
+class Particulas {
+    constructor(position, scale, scene, rutaModelo) {
         this.scene = scene;
         this.scale = scale;
         this.position = position;
@@ -19,146 +20,173 @@ class Particulas{
                 gltf.scene.scale.set(this.scale, this.scale, this.scale);
                 gltf.scene.position.copy(position);
                 this.scene.add(gltf.scene);
-                this.particula = gltf.scene;        
+                this.particula = gltf.scene;
             }
         )
     }
 }
 
+
+
 class Planeta {
-    constructor(position, scale, scene, rutaModelo, orbitRadius, direction) {
+    constructor(position, scale, scene, orbitRadius, direction, color) {
         this.scene = scene;
         this.scale = scale;
         this.orbitRadius = orbitRadius;
-        this.direction = direction; // Radio de la órbita
+        this.direction = direction;
 
-        const loader = new GLTFLoader();
-        // Crear la estela de la órbita
 
-        loader.load(
-            rutaModelo,
-            (gltf) => {
-                gltf.scene.scale.set(this.scale, this.scale, this.scale);
-                gltf.scene.position.copy(position);
-                this.scene.add(gltf.scene);
-                this.planeta = gltf.scene;
-            },
-            undefined,
-            (error) => {
-                console.error(error);
-            }
-        );
+        const solidMaterial = new THREE.MeshStandardMaterial({ color: color });
+
+
+        const glowMaterial = new FakeGlowMaterial({
+            glowColor: new THREE.Color(color),
+        });
+
+
+        const geometry = new THREE.SphereGeometry(scale, 32, 32);
+
+
+
+        this.solidSphere = new THREE.Mesh(geometry, solidMaterial);
+        this.solidSphere.position.copy(position);
+        this.scene.add(this.solidSphere);
+
+       
+        this.glowSphere = new THREE.Mesh(geometry, glowMaterial);
+        this.glowSphere.position.copy(position);
+        this.scene.add(this.glowSphere);
+
+        const scaleFactor = 3; 
+        this.glowSphere.scale.set(scaleFactor, scaleFactor, scaleFactor);
     }
 
-    // Función para actualizar la órbita de los planetas alrededor del planeta central
     actualizarOrbita(angleOffset, speed, amplitude) {
-        const angle = Date.now() * speed * 0.001 + angleOffset; // Offset para cada planeta
+        const angle = Date.now() * speed * 0.001 + angleOffset;
         const x = Math.cos(angle) * this.orbitRadius * amplitude;
         const y = Math.cos(angle) * this.orbitRadius;
         const z = Math.sin(angle) * this.orbitRadius * amplitude;
 
-        this.planeta.position.x = x;
-        this.planeta.position.z = z;
-        
-        if(this.direction == 1){
-            this.planeta.position.y = y;
-        } else{
-            this.planeta.position.y = -y;
-        }
-        
+        this.solidSphere.position.x = x;
+        this.solidSphere.position.z = z;
 
-        this.planeta.rotation.y += 0.01;
-        // Actualizar la posición de la estela de la órbita
-        
+        if (this.direction == 1) {
+            this.solidSphere.position.y = y;
+        } else {
+            this.solidSphere.position.y = -y;
+        }
+
+        this.glowSphere.position.copy(this.solidSphere.position); 
+        this.solidSphere.rotation.y += 0.01;
     }
+
 }
 
-// Inicialización de la escena y los planetas
 function init() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 20000);
 
-    renderer = new THREE.WebGLRenderer();
+    const canvas = document.querySelector('.webgl');
+    renderer = new THREE.WebGLRenderer({ canvas });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-    const FakeGlowMaterial = new FakeGlowMaterial();
+
     
     camera.position.z = 200;
 
-    const backgroundLoader = new THREE.TextureLoader();
-    const backgroundTexture = backgroundLoader.load("./background.jpg");
-    const backgroundMaterial = new THREE.MeshBasicMaterial({ map: backgroundTexture, side: THREE.BackSide });
-    const backgroundGeometry = new THREE.BoxGeometry(2560, 1440, 1000);
-    const backgroundCube = new THREE.Mesh(backgroundGeometry, backgroundMaterial);
-    scene.add(backgroundCube);
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.maxDistance = 400;
+    controls.enableDamping = true;
 
-    //crear nebulosa 
-    const nebulosa = new Particulas(new THREE.Vector3(0,0,0),1, scene, './planetas/nebulosa/scene.gltf');
+    // Cargamos las texturas del cubemap usando CubeTextureLoader
+    const textureLoader = new THREE.TextureLoader();
     
-    // Crear planeta central fijo en el centro
-    const planetaCentral = new Planeta(new THREE.Vector3(0, 0, 0), 0.5, scene, './planetas/nuevoplanetacentral/scene.gltf', 0, 0);
+    const materials = [
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-xpos.png'), side: THREE.BackSide }), // Cara 1
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-xneg.png'), side: THREE.BackSide }), // Cara 2
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-ypos.png'), side: THREE.BackSide }), // Cara 3
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-yneg.png'), side: THREE.BackSide }), // Cara 4
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-zpos.png'), side: THREE.BackSide }), // Cara 5
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-zneg.png'), side: THREE.BackSide }), // Cara 6
+    ];
+    
+    const cubeGeometry = new THREE.BoxGeometry(1000, 1000, 1000);
+    const cube = new THREE.Mesh(cubeGeometry, materials);
+    scene.add(cube);
 
-    // Crear planetas que orbitarán alrededor del planeta central
-    const planeta1 = new Planeta(new THREE.Vector3(20, 0, 0), 0.1, scene, './planetas/scene.gltf', 70, 1);
-    const planeta2 = new Planeta(new THREE.Vector3(30, 0, 0), 0.2, scene, './planetas/scene.gltf', 90, 0);
+
+    const nebulosa = new Particulas(new THREE.Vector3(0, 0, 0), 1, scene, './planetas/nebulosa/scene.gltf');
+    const planetaCentral = new Planeta(new THREE.Vector3(0, 0, 0), 40, scene, 0, 0, "#f57011");
+    const planeta1 = new Planeta(new THREE.Vector3(20, 0, 0), 15, scene, 120, 1, "#1f65f0");
+    const planeta2 = new Planeta(new THREE.Vector3(30, 0, 0), 10, scene, 130, 0, "#f01fb5");
 
     planets.push(planetaCentral, planeta1, planeta2);
 
     starsParticles = createStars();
     scene.add(starsParticles);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3); // Color y intensidad
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 2); // Color y intensidad
-    directionalLight.position.set(30, 20, 0); // Posición de la luz (desde arriba)
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0);
+    directionalLight.position.set(30, 20, 0);
     scene.add(directionalLight);
 
-    document.addEventListener('mousemove', onMouseMove, false);
-    document.addEventListener('wheel', onScroll, false);
+    //document.addEventListener('mousemove', onMouseMove, false);
+
+    //animaciones
+    const tl = gsap.timeline({ defaults: {duration: 3}});
+    tl.fromTo(planetaCentral.glowSphere.scale, {z:0,x:0,y:0}, {z:3,x:3,y:3}, 1);
+    tl.fromTo(planetaCentral.solidSphere.scale, {z:0,x:0,y:0}, {z:1,x:1,y:1}, 1);
+    
+    tl.fromTo(planeta1.glowSphere.scale, {z:0,x:0,y:0}, {z:3,x:3,y:3}, 1);
+    tl.fromTo(planeta1.solidSphere.scale, {z:0,x:0,y:0}, {z:1,x:1,y:1}, 1);
+
+    tl.fromTo(planeta2.glowSphere.scale, {z:0,x:0,y:0}, {z:3,x:3,y:3}, 1);
+    tl.fromTo(planeta2.solidSphere.scale, {z:0,x:0,y:0}, {z:1,x:1,y:1}, 1);
+
+    tl.fromTo("nav", {opacity: 0}, {opacity: 1}, 0);
+    tl.fromTo(".title", { fontSize: "0rem"}, {fontSize: "3rem"},0);
+    tl.fromTo(".title", {opacity: "0%"}, {opacity:"80%"}, 0)
+    tl.fromTo(".title", { top: "50%"}, { top: "20%"}, 1);
+
 
     animate();
 }
+
 function createStars() {
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff }); // Color de las estrellas
+    const particlesMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
     const particlesCount = 1000;
 
-    const positions = new Float32Array(particlesCount * 3); // Cada partícula tiene 3 coordenadas (x, y, z)
+    const positions = new Float32Array(particlesCount * 3);
 
     for (let i = 0; i < particlesCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 1000; // Posición X aleatoria
-        positions[i + 1] = (Math.random() - 0.5) * 1000; // Posición Y aleatoria
-        positions[i + 2] = (Math.random() - 0.5) * 1000; // Posición Z aleatoria
+        positions[i] = (Math.random() - 0.5) * 1000;
+        positions[i + 1] = (Math.random() - 0.5) * 1000;
+        positions[i + 2] = (Math.random() - 0.5) * 1000;
     }
 
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     return particles;
 }
-function onScroll(event){
-    const delta = event.deltaY * 0.05;
-    camera.position.z += delta;
-}
 
-function onMouseMove(event) {
-    const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-
-    camera.position.x = mouseX * 5;
-    camera.position.y = mouseY * 5;
-}
 
 function animate() {
     requestAnimationFrame(animate);
 
+    camera.lookAt(scene.position);
+
+    
     planets.forEach((planet, index) => {
-        const angleOffset = Math.PI / 2 * index; // Desfase de ángulo para cada planeta
-        planet.actualizarOrbita(angleOffset, 1, 1 + 0.1 * index); // Actualizar órbita de los planetas con amplitud variable
+        const angleOffset = Math.PI / 2 * index;
+        planet.actualizarOrbita(angleOffset, 0.5, 1 + 0.1 * index);
+
     });
 
     renderer.render(scene, camera);
+    controls.update();
 }
 
 init();

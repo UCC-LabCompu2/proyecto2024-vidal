@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'FuturaPT', sans-serif; 
+    background: linear-gradient(234deg,#de390c,#8b110d,#de6218,#2037e4,#a1dca0);
+    background-size: 300% 300%;
+    animation: gradient-animation 15s ease infinite;
+}
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+#flex-container {
+    display: flex;
+    flex-direction: column-reverse; 
+    height: 100vh;
+    column-gap: 5px;
+}
+
+#canvas-container {
+    flex:1;
+    background-color: #000000; 
+    border: 2px solid #000000;
+    margin: auto;
+    border-radius: 20px; 
+    box-sizing: border-box; 
+    margin-bottom: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #f0f0f000;
+    padding: 20px;
+    z-index: 1000; 
+    overflow-x: auto;
+}
+
+.box {
+    width: 400px;
+    height: 250px;  
+    margin: 10px;
+    color: #2a2929;
+    background-color: #fffffffd;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+label {
+    margin-right: 10px;
+    font-family: 'FuturaPT', sans-serif;
+}
+
+input[type="number"] {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.scroll-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.scroll-container label {
+    margin-bottom: 5px;
+    font-family: 'FuturaPT', sans-serif; 
+}
+
+canvas {
+    width: calc(100% - 4px); 
+    height: calc(100% - 4px); 
+    border: none; 
+    display: block; 
+}
