@@ -9,7 +9,6 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
 
-
 const axesHelper = new THREE.AxesHelper(10);
 scene.add(axesHelper);
 

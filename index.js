@@ -81,12 +81,12 @@ function init() {
     const textureLoader = new THREE.TextureLoader();
     
     const materials = [
-        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-xpos.png'), side: THREE.BackSide }), // Cara 1
-        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-xneg.png'), side: THREE.BackSide }), // Cara 2
-        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-ypos.png'), side: THREE.BackSide }), // Cara 3
-        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-yneg.png'), side: THREE.BackSide }), // Cara 4
-        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-zpos.png'), side: THREE.BackSide }), // Cara 5
-        new THREE.MeshStandardMaterial({ map: textureLoader.load('/background/nebula-zneg.png'), side: THREE.BackSide }), // Cara 6
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('./background/nebula-xpos.png'), side: THREE.BackSide }), // Cara 1
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('./background/nebula-xneg.png'), side: THREE.BackSide }), // Cara 2
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('./background/nebula-ypos.png'), side: THREE.BackSide }), // Cara 3
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('./background/nebula-yneg.png'), side: THREE.BackSide }), // Cara 4
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('./background/nebula-zpos.png'), side: THREE.BackSide }), // Cara 5
+        new THREE.MeshStandardMaterial({ map: textureLoader.load('./background/nebula-zneg.png'), side: THREE.BackSide }), // Cara 6
     ];
     
     const cubeGeometry = new THREE.BoxGeometry(1000, 1000, 1000);
