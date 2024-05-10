@@ -1,9 +1,11 @@
 # 3 body problem
 
 ## Descripción
-[Simulador de interaccion gravitacional entre cuerpos con masa.
+Simulador de interaccion gravitacional entre cuerpos con masa.
  Utiliza las leyes de newton para calcular las fuerzas y sus derivadas de 
- aceleracion y trayectoria.]
+ aceleracion y trayectoria.
+
+ ![Formula utilizada](./images/leyes.jpg)
 
 ## Tecnologías Utilizadas
 - [HTML 5]
