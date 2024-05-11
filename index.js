@@ -1,8 +1,8 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
-import FakeGlowMaterial from './FakeGlowMaterials.js';
+import FakeGlowMaterial from './modules/FakeGlowMaterials.js';
 
-let scene, camera, renderer, starsParticles;
+let scene, camera, renderer;
 let planets = [];
 let orbitAngle = 0;
 
@@ -102,7 +102,7 @@ function init() {
 
 
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0);

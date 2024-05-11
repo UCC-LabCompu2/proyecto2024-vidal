@@ -1,20 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-@font-face {
-    font-family: 'FuturaPT';
-    src: url('/fonts/FuturaPTLight.otf');
-    font-weight: normal;
-    font-style: normal;
 }
 
 
 body, 
 html{
     overflow-x: hidden;
-    font-family: 'FuturaPT',Arial, sans-serif;
+    font-family: "Playfair Display", serif;
 }
 .webgl{
     position: absolute;
@@ -32,9 +27,9 @@ html{
     opacity: 70%;
     transform: translate(-50%,-50%);
     z-index: 2;
-    font-style: bold;
     text-transform: uppercase;
-
+    font-style: bold;
+    text-align: center;
 }
 nav{
     color: white;
@@ -51,6 +46,7 @@ nav a{
     text-decoration: none;
     color: white;
     font-style: bold;
+    text-align: center;
     
 }
 nav ul{
