@@ -15,7 +15,14 @@
 </head>
 <body>
     <div id="flex-container">
-        <div class="container">
+        <div class="container" id="title-container">
+            <h1>Simulador de 3 Cuerpos</h1>
+        </div>
+        <div class="container" id="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <script type="module" src="simulador.js"></script>
+        <div class="container" id="box-container">
             <!-- Primer elemento -->
             <div class="box">
                 <h2>Cuerpo 1</h2>
@@ -81,10 +88,11 @@
             </div>
         </div>
         
-        <div id="canvas-container">
-            <canvas id="canvas"></canvas>
+        <div class="container" id="button-container">
+            <button class="action-button">iniciar simulacion</button>
+            <button class="action-button"></button>
         </div>
-        <script type="module" src="simulador.js"></script>
+        
     </div>
 </body>
 </html>
