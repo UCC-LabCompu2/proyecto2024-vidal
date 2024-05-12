@@ -11,12 +11,21 @@ html{
     overflow-x: hidden;
     font-family: "Playfair Display", serif;
 }
+.audio{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    bottom: 3%;
+    z-index: 3;
+}
+
 .webgl{
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
-
 }
 .title{
     position: absolute;
@@ -25,6 +34,7 @@ html{
     left: 50%;
     font-size: 3rem;
     opacity: 70%;
+    /*animacion de traslacion*/
     transform: translate(-50%,-50%);
     z-index: 2;
     text-transform: uppercase;
@@ -37,6 +47,7 @@ nav{
     position: absolute;
     bottom: 3%;
     left: 50%;
+    /*animacion al cargar pagina*/
     transform: translate(-50%, -3%);
     padding: 4rem 8rem;
     display: flex;
