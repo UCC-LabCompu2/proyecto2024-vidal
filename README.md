@@ -6,9 +6,9 @@ aceleracion y trayectoria.
 
 ## Comenzando 🚀
 _Estas instrucciones te permitirán utilizar el simuldor de la manera correcta_
-1. Entra al sitio del proyecto: [El problema de los 3 cuerpos]([https://mat1v1dal.github.io/3bodyproblem/](https://ucc-labcompu2.github.io/proyecto2024-vidal/))
-2. Puedes ver informacion de la tematica en el boton de [INFORMACION](https://mat1v1dal.github.io/3bodyproblem/#modal)
-3. Para entrar al simulador haz click en el boton [ENTRAR AL SIMULADOR](https://mat1v1dal.github.io/3bodyproblem/simulador.html)
+1. Entra al sitio del proyecto: [El problema de los 3 cuerpos](https://ucc-labcompu2.github.io/proyecto2024-vidal/)
+2. Puedes ver informacion de la tematica en el boton de [INFORMACION](https://ucc-labcompu2.github.io/proyecto2024-vidal/#modal)
+3. Para entrar al simulador haz click en el boton [ENTRAR AL SIMULADOR](https://ucc-labcompu2.github.io/proyecto2024-vidal/simulador)
 4. continuara..
 ## Construido con 🛠️
 
