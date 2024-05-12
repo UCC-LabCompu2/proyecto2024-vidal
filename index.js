@@ -71,7 +71,7 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     
-    camera.position.z = 200;
+    camera.position.z = 399;
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.maxDistance = 400;

@@ -23,7 +23,6 @@
         </div>
         <script type="module" src="simulador.js"></script>
         <div class="container" id="box-container">
-            <!-- Primer elemento -->
             <div class="box">
                 <h2>Cuerpo 1</h2>
                 <!-- Contenedor para la entrada de masa -->
@@ -42,6 +41,8 @@
                     <input type="range" id="scrollX1" name="scrollX1" min="-100" max="100" value="0">
                     <label for="scrollY1">Posición Y:</label>
                     <input type="range" id="scrollY1" name="scrollY1" min="-100" max="100" value="0">
+                    <label for="scrollZ1">Posición Z:</label>
+                    <input type="range" id="scrollZ1" name="scrollZ1" min="-100" max="100" value="0">
                 </div>
             </div>
             <!-- Segundo elemento -->
@@ -63,6 +64,8 @@
                     <input type="range" id="scrollX2" name="scrollX2" min="-100" max="100" value="0">
                     <label for="scrollY2">Posición Y:</label>
                     <input type="range" id="scrollY2" name="scrollY2" min="-100" max="100" value="0">
+                    <label for="scrollZ2">Posición Z:</label>
+                    <input type="range" id="scrollZ2" name="scrollZ2" min="-100" max="100" value="0">
                 </div>
             </div>
 
@@ -84,10 +87,13 @@
                     <input type="range" id="scrollX2" name="scrollX2" min="-100" max="100" value="0">
                     <label for="scrollY2">Posición Y:</label>
                     <input type="range" id="scrollY2" name="scrollY2" min="-100" max="100" value="0">
+                    <label for="scrollZ3">Posición Z:</label>
+                    <input type="range" id="scrollZ3" name="scrollZ3" min="-100" max="100" value="0">
                 </div>
             </div>
         </div>
         
+        <!-- Contenedor para el boton con icono svg externo -->
         <div class="container" id="button-container">
             <button class="action-button" id="simulator-button">iniciar simulacion</button>
             <button class="action-button" id="undo-button"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 32 32">
