@@ -149,7 +149,8 @@ label {
     color: #efedee;
     text-shadow: 4px 4px 33px rgba(0,0,0,0.6);
     text-align: center;
-    font-weight: 700;
+    font-weight: 400;
+    letter-spacing: 10px;
     font-size: auto;
     font-style: normal;
 }
