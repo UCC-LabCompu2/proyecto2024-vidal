@@ -123,9 +123,9 @@ function init() {
     tl.fromTo(planeta2.solidSphere.scale, {z:0,x:0,y:0}, {z:1,x:1,y:1}, 1);
 
     tl.fromTo("nav", {opacity: 0}, {opacity: 1}, 0);
-    tl.fromTo(".title", { fontSize: "0rem"}, {fontSize: "3rem"},0);
+    tl.fromTo(".title", { fontSize: "0rem"}, {fontSize: "35px"},0);
     tl.fromTo(".title", {opacity: "0%"}, {opacity:"80%"}, 0)
-    tl.fromTo(".title", { top: "50%"}, { top: "20%"}, 1);
+    tl.fromTo(".title", { top: "50%"}, { top: "15%"}, 1);
 
 
     animate();
