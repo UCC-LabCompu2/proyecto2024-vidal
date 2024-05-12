@@ -20,7 +20,10 @@ html{
     bottom: 3%;
     z-index: 3;
 }
-
+audio{
+    padding: 10px;
+    display: none;
+}
 .webgl{
     position: absolute;
     top: 0;
