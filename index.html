@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>El problema de los 3 cuerpos</title>
-    <link rel="stylesheet" href="styles.css">
-    <link type="image/png" sizes="16x16" rel="icon" href="./images/icons8-planeta-16.png">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="./images/icons8-planeta-16.png"
+    />
     <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three/build/three.module.js"
-            }
+      {
+        "imports": {
+          "three": "https://unpkg.com/three/build/three.module.js"
         }
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="audio">
-        <audio controls autoplay id="audio-control">
-            <source src="./audio/audio.mp3" type="audio/mpeg">
-        </audio>
+      <audio controls autoplay id="audio-control">
+        <source src="./audio/audio.mp3" type="audio/mpeg" />
+      </audio>
     </div>
 
     <canvas class="webgl"></canvas>
@@ -29,64 +34,92 @@
     <h1 class="title">El Problema de los 3 Cuerpos</h1>
 
     <div class="container-all" id="modal">
-        <div class="popup">
-            <div class="title-container">
-                <h2>¿Qué es el Problema de los 3 Cuerpos?</h2>
-            </div>
-
-            <div class="parraf-container">
-                <p>Imagina tres cuerpos, como planetas, estrellas o satélites, interactuando entre sí únicamente debido a la fuerza gravitatoria que ejercen uno sobre otro. Este escenario genera un sistema dinámico extremadamente complejo, donde las trayectorias de los cuerpos pueden ser caóticas y difíciles de predecir a largo plazo.</p>
-            </div>
-
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/D2YhKaANbWE?si=NUTogh11f0stfN1C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-
-            <div class="title-container">
-                <h2>¿Cómo se calculan las trayectorias?</h2>
-            </div>
-
-            <div class="parraf-container">
-                <p>En esta simulación, se utiliza la fórmula de gravitación universal de Newton. Sin embargo, en la práctica real se necesitan modelos matemáticos mucho más complejos.</p>
-            </div>
-
-            <div class="image-container">
-                <img src="./images/leydenewton.png" id="newtonImage">
-            </div>
-
-            <div class="parraf-container">
-                <p>Podemos obtener la aceleración de un cuerpo bajo la influencia gravitatoria de otro cuerpo usando la derivada de la fuerza.</p>
-            </div>
-
-            <div class="image-container">
-                <img src="./images/ecuacionAceleracion.png" id="newtonImage">
-            </div>
-
-            <div class="parraf-container">
-                <p>La velocidad de un cuerpo en movimiento bajo la gravedad se puede obtener integrando la aceleración con respecto al tiempo.</p>
-            </div>
-
-            <div class="image-container">
-                <img src="./images/ecuacionVelocidad.png" id="velocidadImage">
-            </div>
-
-            <div class="parraf-container">
-                <p>La posición de un cuerpo en movimiento se obtiene integrando la velocidad con respecto al tiempo.</p>
-            </div>
-
-            <div class="image-container">
-                <img src="./images/ecuacionPosicion.png" id="posicionImage">
-            </div>
-
-            <a href="#" class="close-popup">X</a>
+      <div class="popup">
+        <div class="title-container">
+          <h2>¿Qué es el Problema de los 3 Cuerpos?</h2>
         </div>
+
+        <div class="parraf-container">
+          <p>
+            Imagina tres cuerpos, como planetas, estrellas o satélites,
+            interactuando entre sí únicamente debido a la fuerza gravitatoria
+            que ejercen uno sobre otro. Este escenario genera un sistema
+            dinámico extremadamente complejo, donde las trayectorias de los
+            cuerpos pueden ser caóticas y difíciles de predecir a largo plazo.
+          </p>
+        </div>
+
+        <div class="video-container">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/D2YhKaANbWE?si=NUTogh11f0stfN1C"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="title-container">
+          <h2>¿Cómo se calculan las trayectorias?</h2>
+        </div>
+
+        <div class="parraf-container">
+          <p>
+            En esta simulación, se utiliza la fórmula de gravitación universal
+            de Newton. Sin embargo, en la práctica real se necesitan modelos
+            matemáticos mucho más complejos.
+          </p>
+        </div>
+
+        <div class="image-container">
+          <img src="./images/leydenewton.png" id="newtonImage" />
+        </div>
+
+        <div class="parraf-container">
+          <p>
+            Podemos obtener la aceleración de un cuerpo bajo la influencia
+            gravitatoria de otro cuerpo usando la derivada de la fuerza.
+          </p>
+        </div>
+
+        <div class="image-container">
+          <img src="./images/ecuacionAceleracion.png" id="newtonImage" />
+        </div>
+
+        <div class="parraf-container">
+          <p>
+            La velocidad de un cuerpo en movimiento bajo la gravedad se puede
+            obtener integrando la aceleración con respecto al tiempo.
+          </p>
+        </div>
+
+        <div class="image-container">
+          <img src="./images/ecuacionVelocidad.png" id="velocidadImage" />
+        </div>
+
+        <div class="parraf-container">
+          <p>
+            La posición de un cuerpo en movimiento se obtiene integrando la
+            velocidad con respecto al tiempo.
+          </p>
+        </div>
+
+        <div class="image-container">
+          <img src="./images/ecuacionPosicion.png" id="posicionImage" />
+        </div>
+
+        <a href="#" class="close-popup">X</a>
+      </div>
     </div>
 
     <nav>
-        <ul>
-            <li><a href="./simulador.html">ENTRAR AL SIMULADOR</a></li>
-            <li><a href="#modal">INFORMACIÓN</a></li>
-        </ul>
+      <ul>
+        <li><a href="./simulador.html">ENTRAR AL SIMULADOR</a></li>
+        <li><a href="#modal">INFORMACIÓN</a></li>
+      </ul>
     </nav>
-</body>
+  </body>
 </html>

@@ -1,173 +1,174 @@
 /* Reset de estilos */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Estilos generales para el cuerpo del documento */
-body, html {
-    overflow-x: hidden;
-    font-family: "Playfair Display", serif;
+body,
+html {
+  overflow-x: hidden;
+  font-family: "Playfair Display", serif;
 }
 
 /* Contenedor general */
 .container-all {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 3;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 600ms;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 600ms;
 }
 
 /* Efecto de modal al hacer clic en un enlace */
 .container-all:target {
-    background-color: rgba(0, 0, 0, 0.6);
-    visibility: visible;
-    opacity: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+  visibility: visible;
+  opacity: 1;
 }
 
 /* Estilos para el contenido del popup */
 .popup {
-    width: 90%;
-    max-width: 800px;
-    z-index: 3;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    top: 50%;
-    left: 50%;
-    padding: 10px;
-    text-decoration: none;
-    transform: translate(-50%, -50%);
-    background-color: antiquewhite;
-    overflow-y: auto;
-    overflow-x: hidden;
-    align-items: center;
-    border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  z-index: 3;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  text-decoration: none;
+  transform: translate(-50%, -50%);
+  background-color: antiquewhite;
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-items: center;
+  border-radius: 15px;
 }
 
 /* Estilos para los títulos dentro del popup */
 .title-container {
-    margin-top: 10px;
-    font-size: 20px;
+  margin-top: 10px;
+  font-size: 20px;
 }
 
 /* Estilos para los párrafos dentro del popup */
 .parraf-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .parraf-container p {
-    text-align: center;
-    font-weight: 500;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* Estilos para contenedores de video e imagen */
 .video-container {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .image-container img {
-    width: 300px;
-    height: 150px;
+  width: 300px;
+  height: 150px;
 }
 
 /* Estilos específicos para algunas imágenes */
 #velocidadImage {
-    width: 300px;
-    height: 50px;
+  width: 300px;
+  height: 50px;
 }
 
 #posicionImage {
-    width: 300px;
-    height: 50px;
+  width: 300px;
+  height: 50px;
 }
 
 /* Estilos para el botón de cerrar el popup */
 .close-popup {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    left: -20px;
-    top: -20px;
-    padding: 32px;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    background: black;
-    z-index: 1000;
-    color: white;
-    font-size: 25px;
-    line-height: 10px;
-    border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  padding: 32px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  background: black;
+  z-index: 1000;
+  color: white;
+  font-size: 25px;
+  line-height: 10px;
+  border-radius: 50%;
 }
 
 /* Estilos para el reproductor de audio */
 .audio {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    justify-content: center;
-    width: 100%;
-    bottom: 3%;
-    z-index: 100;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  bottom: 3%;
+  z-index: 100;
 }
 
 audio {
-    padding: 10px;
+  padding: 10px;
 }
 
 /* Estilos para el elemento canvas de WebGL */
 .webgl {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 /* Estilos para el título principal */
 .title {
-    position: absolute;
-    color: white;
-    top: 50%;
-    left: 50%;
-    font-weight: 400;
-    width: 100%;
-    opacity: 70%;
-    letter-spacing: 5px;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    text-align: center;
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  font-weight: 400;
+  width: 100%;
+  opacity: 70%;
+  letter-spacing: 5px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
 }
 
 /* Estilos para la barra de navegación */
 nav {
-    color: white;
-    z-index: 2;
-    position: absolute;
-    bottom: 3%;
-    left: 50%;
-    /*animacion al cargar pagina*/
-    transform: translate(-50%, -3%);
-    padding: 4rem 8rem;
-    display: flex;
-    justify-content: space-between;
+  color: white;
+  z-index: 2;
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  /*animacion al cargar pagina*/
+  transform: translate(-50%, -3%);
+  padding: 4rem 8rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav a {
-    text-decoration: none;
-    color: white;
-    font-style: bold;
-    text-align: center;
+  text-decoration: none;
+  color: white;
+  font-style: bold;
+  text-align: center;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    opacity: 70%;
-    gap: 4rem;
+  list-style: none;
+  display: flex;
+  opacity: 70%;
+  gap: 4rem;
 }
