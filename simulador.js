@@ -212,8 +212,25 @@ document.getElementById("reset-button").addEventListener("click", () => {
 
 // Evento de inicio de simulación
 document.getElementById("simulator-button").addEventListener("click", () => {
-  dt = 0.01;
-  bodies[0].mass = parseFloat(document.getElementById("masa1").value) || 1;
+  var masa1 = parseFloat(document.getElementById("masa1").value) || 1;
+  var masa2 = parseFloat(document.getElementById("masa2").value) || 1;
+  var masa3 = parseFloat(document.getElementById("masa3").value) || 1;
+  if(masa1 > 0 && masa2 > 0 && masa3 > 0){
+    dt = 0.01;
+    simulationActive = true;
+  } else {
+    alert("las masas deben ser mayores a 0");
+    document.getElementById("masa1").value = "";
+    document.getElementById("masa2").value = "";
+    document.getElementById("masa3").value = "";
+    simulationActive = false;
+    dt = 0;
+  }
+
+  bodies[0].mass = masa1;
+  bodies[1].mass = masa2;
+  bodies[2].mass = masa3;
+
   bodies[0].velocity.set(
     parseFloat(document.getElementById("velocidad1x").value) || 0,
     parseFloat(document.getElementById("velocidad1y").value) || 0,
@@ -232,7 +249,7 @@ document.getElementById("simulator-button").addEventListener("click", () => {
     parseFloat(document.getElementById("velocidad3z").value) || 0
   );
   bodies.forEach((body) => body.updateMesh());
-  simulationActive = true;
+
 });
 
 // Inicialización al cargar el DOM

@@ -91,7 +91,7 @@ body {
 
 .action-button {
   appearance: none;
-  background-color: fff;
+  background-color: white;
   border: 2px solid #1a1a1a;
   border-radius: 15px;
   box-sizing: border-box;
@@ -153,20 +153,30 @@ label {
 #title-container {
   height: 10%;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
   align-items: center;
-  height: auto;
   padding: 0;
+  justify-content: space-between;
   margin-bottom: 5px;
+}
+
+#title-container a{
+  font-family: "Roboto", sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
 }
 #title-container h1 {
   font-family: "Playfair Display", serif;
   text-transform: uppercase;
   color: #efedee;
+  flex: 1;
   text-shadow: 4px 4px 33px rgba(0, 0, 0, 0.6);
   text-align: center;
   font-weight: 400;
   letter-spacing: 10px;
-  font-size: auto;
   font-style: normal;
 }
 #button-container {
