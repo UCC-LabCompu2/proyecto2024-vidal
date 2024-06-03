@@ -130,6 +130,15 @@ body {
   transform: translateY(0);
 }
 
+.velocidad-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.velocidad-container input {
+  max-width: 50px;
+  margin: 5px;
+}
 #undo-button {
   padding: 9px;
   background-color: rgb(255, 202, 202);
