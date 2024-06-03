@@ -210,12 +210,13 @@ document.getElementById("reset-button").addEventListener("click", () => {
   bodies.forEach((body) => body.updateMesh());
 });
 
-// Evento de inicio de simulación
+// Evento de simulación
 document.getElementById("simulator-button").addEventListener("click", () => {
-  var masa1 = parseFloat(document.getElementById("masa1").value) || 1;
-  var masa2 = parseFloat(document.getElementById("masa2").value) || 1;
-  var masa3 = parseFloat(document.getElementById("masa3").value) || 1;
-  if(masa1 > 0 && masa2 > 0 && masa3 > 0){
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  var masa1 = parseFloat(document.getElementById("masa1").value);
+  var masa2 = parseFloat(document.getElementById("masa2").value);
+  var masa3 = parseFloat(document.getElementById("masa3").value);
+  if (masa1 > 0 && masa2 > 0 && masa3 > 0) {
     dt = 0.01;
     simulationActive = true;
   } else {
@@ -249,7 +250,6 @@ document.getElementById("simulator-button").addEventListener("click", () => {
     parseFloat(document.getElementById("velocidad3z").value) || 0
   );
   bodies.forEach((body) => body.updateMesh());
-
 });
 
 // Inicialización al cargar el DOM
