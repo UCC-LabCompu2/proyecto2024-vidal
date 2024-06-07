@@ -21,12 +21,12 @@ _Estas instrucciones te permitirán utilizar el simulador de la manera correcta_
 
 ## Construido con 🛠️
 
-| Tecnología | Descripción                              |
-|------------|------------------------------------------|
-| **HTML5**  | Maquetador                               |
-| **CSS**    | Estilos                                  |
-| **Javascript** | Usado para generar las simulaciones |
-| [**THREEJS**](https://threejs.org/) | Usado para las animaciones 3d |
+| Tecnología                          | Descripción                         |
+|-------------------------------------|-------------------------------------|
+| **HTML5**                           | Maquetador                          |
+| **CSS**                             | Estilos                             |
+| **Javascript**                      | Usado para generar las simulaciones |
+| [**THREEJS**](https://threejs.org/) | Usado para las animaciones 3d       |
 
 ## Pre-requisitos 📋
 
