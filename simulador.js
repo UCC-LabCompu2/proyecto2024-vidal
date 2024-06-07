@@ -34,6 +34,10 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 camera.position.set(10, 10, 10);
+
+const initalCameraPosition = camera.position.clone();
+const initialCameraQuaternion = camera.quaternion.clone();
+const initialCameraTarget = new THREE.Vector3(0, 0, 0);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.maxDistance = 400;
 controls.enableDamping = true;
@@ -208,14 +212,19 @@ document.getElementById("reset-button").addEventListener("click", () => {
   bodies[2].velocity.set(0, 0, 0);
   setupInitialScrollValues();
   bodies.forEach((body) => body.updateMesh());
+  camera.position.copy(initalCameraPosition);
+  camera.quaternion.copy(initialCameraQuaternion);
+  controls.target.copy(initialCameraTarget);
+  controls.update()
+
 });
 
 // Evento de simulación
 document.getElementById("simulator-button").addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
-  var masa1 = parseFloat(document.getElementById("masa1").value);
-  var masa2 = parseFloat(document.getElementById("masa2").value);
-  var masa3 = parseFloat(document.getElementById("masa3").value);
+  let masa1 = parseFloat(document.getElementById("masa1").value);
+  let masa2 = parseFloat(document.getElementById("masa2").value);
+  let masa3 = parseFloat(document.getElementById("masa3").value);
   if (masa1 > 0 && masa2 > 0 && masa3 > 0) {
     dt = 0.01;
     simulationActive = true;
