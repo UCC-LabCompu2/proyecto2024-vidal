@@ -15,9 +15,9 @@ aceleración y trayectoria.
 ## Comenzando 🚀
 _Estas instrucciones te permitirán utilizar el simulador de la manera correcta._
 _**Recomendación:** puedes rotar la escena a tu gusto utilizando el mouse._
-1. Entra al sitio del proyecto: [El problema de los 3 cuerpos](https://mat1v1dal.github.io/3bodyproblem/)
-2. Puedes ver información de la temática en el botón de [INFORMACIÓN](https://mat1v1dal.github.io/3bodyproblem/#modal)
-3. Para entrar al simulador haz clic en el botón [ENTRAR AL SIMULADOR](https://mat1v1dal.github.io/3bodyproblem/simulador.html)
+1. Entra al sitio del proyecto: [El problema de los 3 cuerpos](https://ucc-labcompu2.github.io/proyecto2024-vidal/)
+2. Puedes ver información de la temática en el botón de [INFORMACIÓN](https://ucc-labcompu2.github.io/proyecto2024-vidal/#modal)
+3. Para entrar al simulador haz clic en el botón [ENTRAR AL SIMULADOR](https://ucc-labcompu2.github.io/proyecto2024-vidal/simulador.html)
 4. Ingresa las masas de los cuerpos (valores entre 0 y 10000)
 5. Opcionalmente inicia las velocidades iniciales de los cuerpos (valores entre 0 y 50 en valor absoluto)
 6. Opcionalmente ajusta las posiciones iniciales de los cuerpos
