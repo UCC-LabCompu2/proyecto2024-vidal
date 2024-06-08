@@ -13,11 +13,15 @@ aceleración y trayectoria.
 - [Autores ✒️](#autores-)
 
 ## Comenzando 🚀
-_Estas instrucciones te permitirán utilizar el simulador de la manera correcta_
+_Estas instrucciones te permitirán utilizar el simulador de la manera correcta._
+_**Recomendación:** puedes rotar la escena a tu gusto utilizando el mouse._
 1. Entra al sitio del proyecto: [El problema de los 3 cuerpos](https://mat1v1dal.github.io/3bodyproblem/)
-2. Puedes ver información de la temática en el botón de [INFORMACION](https://mat1v1dal.github.io/3bodyproblem/#modal)
-3. Para entrar al simulador haz click en el botón [ENTRAR AL SIMULADOR](https://mat1v1dal.github.io/3bodyproblem/simulador.html)
-4. Continuará..
+2. Puedes ver información de la temática en el botón de [INFORMACIÓN](https://mat1v1dal.github.io/3bodyproblem/#modal)
+3. Para entrar al simulador haz clic en el botón [ENTRAR AL SIMULADOR](https://mat1v1dal.github.io/3bodyproblem/simulador.html)
+4. Ingresa las masas de los cuerpos (valores entre 0 y 10000)
+5. Opcionalmente inicia las velocidades iniciales de los cuerpos (valores entre 0 y 50 en valor absoluto)
+6. Opcionalmente ajusta las posiciones iniciales de los cuerpos
+7. Inicia la simulación
 
 ## Construido con 🛠️
 
@@ -25,8 +29,8 @@ _Estas instrucciones te permitirán utilizar el simulador de la manera correcta_
 |-------------------------------------|-------------------------------------|
 | **HTML5**                           | Maquetador                          |
 | **CSS**                             | Estilos                             |
-| **Javascript**                      | Usado para generar las simulaciones |
-| [**THREEJS**](https://threejs.org/) | Usado para las animaciones 3d       |
+| **JavaScript**                      | Usado para generar las simulaciones |
+| [**THREE.js**](https://threejs.org/) | Usado para las animaciones 3D       |
 
 ## Pre-requisitos 📋
 
@@ -40,4 +44,4 @@ Usé [GIT](https://git-scm.com/) para el versionado. Para todas las versiones di
 
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Vidal Matias** - *Desarrollador completo* - [mat1v1dal](https://github.com/mat1v1dal)
+* **Vidal Matías** - *Desarrollador completo* - [mat1v1dal](https://github.com/mat1v1dal)

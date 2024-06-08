@@ -7,6 +7,15 @@ let planets = [];
 let orbitAngle = 0;
 
 class Planeta {
+  /**
+   * Crea una instancia de Planeta.
+   * @param {THREE.Vector3} position - La posición inicial del planeta.
+   * @param {number} scale - La escala del planeta.
+   * @param {THREE.Scene} scene - La escena de Three.js.
+   * @param {number} orbitRadius 
+   * @param {number} direction - La dirección de la órbita.
+   * @param {string} color 
+   */
   constructor(position, scale, scene, orbitRadius, direction, color) {
     this.scene = scene;
     this.scale = scale;
@@ -33,6 +42,12 @@ class Planeta {
     this.glowSphere.scale.set(scaleFactor, scaleFactor, scaleFactor);
   }
 
+  /**
+   * Actualiza la órbita del planeta.
+   * @param {number} angleOffset - El desplazamiento angular de la órbita.
+   * @param {number} speed - La velocidad de la órbita.
+   * @param {number} amplitude - La amplitud de la órbita.
+   */
   actualizarOrbita(angleOffset, speed, amplitude) {
     const angle = Date.now() * speed * 0.001 + angleOffset;
     const x = Math.cos(angle) * this.orbitRadius * amplitude;
@@ -53,7 +68,10 @@ class Planeta {
   }
 }
 
-function init() {
+/**
+ * Inicializa la escena de Three.js, la cámara, el renderizador y los controles de órbita.
+ */
+const init = () => {
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(
     75,
@@ -188,9 +206,12 @@ function init() {
   tl.fromTo(".title", { top: "50%" }, { top: "15%" }, 1);
 
   animate();
-}
+};
 
-function animate() {
+/**
+ * Anima la escena de Three.js.
+ */
+const animate = () => {
   requestAnimationFrame(animate);
 
   camera.lookAt(scene.position);
@@ -202,6 +223,6 @@ function animate() {
 
   renderer.render(scene, camera);
   controls.update();
-}
+};
 
 init();
