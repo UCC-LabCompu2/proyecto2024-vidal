@@ -6,11 +6,11 @@ aceleración y trayectoria.
 
 ## Índice
 
-- [Comenzando 🚀](#comenzando-🚀)
-- [Construido con 🛠️](#construido-con-🛠️)
-- [Pre-requisitos 📋](#pre-requisitos-📋)
-- [Versionado 📌](#versionado-📌)
-- [Autores ✒️](#autores-✒️)
+- [Comenzando 🚀](#comenzando-)
+- [Construido con 🛠️](#construido-con-%EF%B8%8F)
+- [Pre-requisitos 📋](#pre-requisitos-)
+- [Versionado 📌](#versionado-)
+- [Autores ✒️](#autores-%EF%B8%8F)
 
 ## Comenzando 🚀
 _Estas instrucciones te permitirán utilizar el simulador de la manera correcta._
