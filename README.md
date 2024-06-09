@@ -6,11 +6,11 @@ aceleración y trayectoria.
 
 ## Índice
 
-- [Comenzando 🚀](#comenzando-)
-- [Construido con 🛠️](#construido-con-)
-- [Pre-requisitos 📋](#pre-requisitos-)
-- [Versionado 📌](#versionado-)
-- [Autores ✒️](#autores-)
+- [Comenzando 🚀](#comenzando-🚀)
+- [Construido con 🛠️](#construido-con-🛠️)
+- [Pre-requisitos 📋](#pre-requisitos-📋)
+- [Versionado 📌](#versionado-📌)
+- [Autores ✒️](#autores-✒️)
 
 ## Comenzando 🚀
 _Estas instrucciones te permitirán utilizar el simulador de la manera correcta._
@@ -42,6 +42,5 @@ Usé [GIT](https://git-scm.com/) para el versionado. Para todas las versiones di
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **Vidal Matías** - *Desarrollador completo* - [mat1v1dal](https://github.com/mat1v1dal)
