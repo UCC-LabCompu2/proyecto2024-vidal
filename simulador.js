@@ -49,7 +49,6 @@ controls.maxDistance = 400;
 controls.enableDamping = true;
 
 // Trayectorias
-const orbitLines = [];
 const maxOrbitPoints = 10000;
 /**
  * Actualiza las posiciones de los cuerpos en la simulación.
