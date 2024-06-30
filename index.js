@@ -8,7 +8,7 @@ let orbitAngle = 0;
 
 class Planeta {
   /**
-   * Crea una instancia de Planeta.
+   * @constuctor Crea una instancia de Planeta.
    * @param {THREE.Vector3} position - La posición inicial del planeta.
    * @param {number} scale - La escala del planeta.
    * @param {THREE.Scene} scene - La escena de Three.js.
@@ -43,7 +43,7 @@ class Planeta {
   }
 
   /**
-   * Actualiza la órbita del planeta.
+   * @method Actualiza la órbita del planeta.
    * @param {number} angleOffset - El desplazamiento angular de la órbita.
    * @param {number} speed - La velocidad de la órbita.
    * @param {number} amplitude - La amplitud de la órbita.
@@ -69,7 +69,7 @@ class Planeta {
 }
 
 /**
- * Inicializa la escena de Three.js, la cámara, el renderizador y los controles de órbita.
+ * @method Inicializa la escena de Three.js, la cámara, el renderizador y los controles de órbita.
  */
 const init = () => {
   scene = new THREE.Scene();
@@ -209,7 +209,7 @@ const init = () => {
 };
 
 /**
- * Anima la escena de Three.js.
+ * @method Anima la escena de Three.js.
  */
 const animate = () => {
   requestAnimationFrame(animate);

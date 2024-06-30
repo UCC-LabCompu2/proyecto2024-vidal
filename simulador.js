@@ -51,8 +51,7 @@ controls.enableDamping = true;
 // Trayectorias
 const maxOrbitPoints = 10000;
 /**
- * Actualiza las posiciones de los cuerpos en la simulación.
- *
+ * @method Actualiza las posiciones de los cuerpos en la simulación.
  * @param {Body[]} bodies - Array de cuerpos a actualizar.
  * @param {number} dt - Intervalo de tiempo para la simulación.
  */
@@ -94,11 +93,11 @@ const updatePositions = (bodies, dt) => {
 };
 
 /**
- * Clase que representa un cuerpo en la simulación.
+ * @class Clase que representa un cuerpo en la simulación.
  */
 class Body {
   /**
-   * Crea una nueva instancia de un cuerpo.
+   *@constructor Crea una nueva instancia de un cuerpo.
    *
    * @param {THREE.Vector3} position - Posición inicial del cuerpo.
    * @param {THREE.Vector3} velocity - Velocidad inicial del cuerpo.
@@ -127,7 +126,7 @@ class Body {
   
 
   /**
-   * Actualiza la posición de la malla del cuerpo para que coincida con su posición física.
+   * @method Actualiza la posición de la malla del cuerpo para que coincida con su posición física.
    */
   updateMesh = () => {
     this.mesh.position.copy(this.position);
@@ -135,7 +134,7 @@ class Body {
 }
 
 /**
- * Actualiza las trayectorias de los cuerpos.
+ *@method Actualiza las trayectorias de los cuerpos.
  *
  * @param {Body} body - El cuerpo cuya trayectoria se está actualizando.
  * @param {number} index - El índice del cuerpo en el array de cuerpos.
@@ -162,7 +161,7 @@ const bodies = [
 ];
 
 /**
- * Configura los valores iniciales de los controles deslizantes.
+ * @method Configura los valores iniciales de los controles deslizantes.
  */
 const setupInitialScrollValues = () => {
   // Cuerpo 1
@@ -182,7 +181,7 @@ const setupInitialScrollValues = () => {
 };
 
 /**
- * Añade los listeners a los controles deslizantes para actualizar las posiciones de los cuerpos.
+ * @method Añade los listeners a los controles deslizantes para actualizar las posiciones de los cuerpos.
  */
 const addScrollListeners = () => {
   // Cuerpo 1
@@ -244,7 +243,7 @@ const addScrollListeners = () => {
 };
 
 /**
- * Función principal de animación.
+ * @method Función principal de animación.
  */
 const animate = () => {
   requestAnimationFrame(animate);
@@ -259,7 +258,7 @@ const animate = () => {
 };
 
 /**
- * Evento de reinicio de la simulación.
+ * @method Evento de reinicio de la simulación.
  */
 document.getElementById("reset-button").addEventListener("click", () => {
   simulationActive = false;
@@ -279,6 +278,7 @@ document.getElementById("reset-button").addEventListener("click", () => {
   bodies[2].orbitPoints = [];
   scene.remove(bodies[2].orbitLine);
 
+  // Crear nuevas trayectorias
   bodies.forEach(body => {
     const orbitLineGeometry = new THREE.BufferGeometry();
     orbitLineGeometry.setFromPoints([body.position]);
@@ -297,7 +297,7 @@ document.getElementById("reset-button").addEventListener("click", () => {
 });
 
 /**
- * Evento para iniciar la simulación.
+ * @method Evento para iniciar la simulación.
  */
 document.getElementById("simulator-button").addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -305,21 +305,21 @@ document.getElementById("simulator-button").addEventListener("click", () => {
     alert("La simulación ya está activa, reinicie la simulación para volver a empezar");
   } else {
     const maxVelocity = 50; // Valor máximo permitido para la velocidad
-    let masa1 = parseFloat(document.getElementById("masa1").value);
-    let masa2 = parseFloat(document.getElementById("masa2").value);
-    let masa3 = parseFloat(document.getElementById("masa3").value);
+    const masa1 = parseFloat(document.getElementById("masa1").value);
+    const masa2 = parseFloat(document.getElementById("masa2").value);
+    const masa3 = parseFloat(document.getElementById("masa3").value);
     
-    let vel1x = parseFloat(document.getElementById("velocidad1x").value) || 0;
-    let vel1y = parseFloat(document.getElementById("velocidad1y").value) || 0;
-    let vel1z = parseFloat(document.getElementById("velocidad1z").value) || 0;
+    const vel1x = parseFloat(document.getElementById("velocidad1x").value) || 0;
+    const vel1y = parseFloat(document.getElementById("velocidad1y").value) || 0;
+    const vel1z = parseFloat(document.getElementById("velocidad1z").value) || 0;
     
-    let vel2x = parseFloat(document.getElementById("velocidad2x").value) || 0;
-    let vel2y = parseFloat(document.getElementById("velocidad2y").value) || 0;
-    let vel2z = parseFloat(document.getElementById("velocidad2z").value) || 0;
+    const vel2x = parseFloat(document.getElementById("velocidad2x").value) || 0;
+    const vel2y = parseFloat(document.getElementById("velocidad2y").value) || 0;
+    const vel2z = parseFloat(document.getElementById("velocidad2z").value) || 0;
     
-    let vel3x = parseFloat(document.getElementById("velocidad3x").value) || 0;
-    let vel3y = parseFloat(document.getElementById("velocidad3y").value) || 0;
-    let vel3z = parseFloat(document.getElementById("velocidad3z").value) || 0;
+    const vel3x = parseFloat(document.getElementById("velocidad3x").value) || 0;
+    const vel3y = parseFloat(document.getElementById("velocidad3y").value) || 0;
+    const vel3z = parseFloat(document.getElementById("velocidad3z").value) || 0;
 
     // Verificar las masas
     if (masa1 > 0 && masa2 > 0 && masa3 > 0 && masa1 <= 100000 && masa2 <= 100000 && masa3 <= 100000) {
@@ -363,7 +363,7 @@ document.getElementById("simulator-button").addEventListener("click", () => {
 });
 
 /**
- * Inicialización al cargar el DOM.
+ * @method Inicialización al cargar el DOM.
  */
 document.addEventListener("DOMContentLoaded", () => {
   setupInitialScrollValues();
