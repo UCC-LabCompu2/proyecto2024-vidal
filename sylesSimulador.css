@@ -88,7 +88,11 @@ body {
   align-items: center;
   margin: 5px;
 }
+.action-button img{
+  width: 20px;
+  height: 20px;
 
+}
 .action-button {
   appearance: none;
   background-color: white;
