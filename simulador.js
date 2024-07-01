@@ -51,9 +51,11 @@ controls.enableDamping = true;
 // Trayectorias
 const maxOrbitPoints = 10000;
 /**
- * @method Actualiza las posiciones de los cuerpos en la simulación.
+ * @method updatePositions
+ * Actualiza las posiciones de los cuerpos en la simulación.
  * @param {Body[]} bodies - Array de cuerpos a actualizar.
  * @param {number} dt - Intervalo de tiempo para la simulación.
+ * @returns {void}
  */
 const updatePositions = (bodies, dt) => {
   for (let i = 0; i < bodies.length; i++) {
@@ -93,12 +95,13 @@ const updatePositions = (bodies, dt) => {
 };
 
 /**
- * @class Clase que representa un cuerpo en la simulación.
+ * @class Body
+ * representa un cuerpo en la simulación.
  */
 class Body {
   /**
-   *@constructor Crea una nueva instancia de un cuerpo.
-   *
+   * @constructor 
+   * Crea una nueva instancia de un cuerpo.
    * @param {THREE.Vector3} position - Posición inicial del cuerpo.
    * @param {THREE.Vector3} velocity - Velocidad inicial del cuerpo.
    * @param {number} mass - Masa del cuerpo.
@@ -126,7 +129,9 @@ class Body {
   
 
   /**
-   * @method Actualiza la posición de la malla del cuerpo para que coincida con su posición física.
+   * @method updateMesh
+   * Actualiza la posición de la malla del cuerpo para que coincida con su posición física.
+   * @returns {void}
    */
   updateMesh = () => {
     this.mesh.position.copy(this.position);
@@ -134,10 +139,10 @@ class Body {
 }
 
 /**
- *@method Actualiza las trayectorias de los cuerpos.
- *
+ * @method updateOrbit
+ * Actualiza las trayectorias de los cuerpos.
  * @param {Body} body - El cuerpo cuya trayectoria se está actualizando.
- * @param {number} index - El índice del cuerpo en el array de cuerpos.
+ * @returns {void}
  */
 const updateOrbit = (body) => {
   body.orbitPoints.push(body.position.clone());
@@ -161,7 +166,9 @@ const bodies = [
 ];
 
 /**
- * @method Configura los valores iniciales de los controles deslizantes.
+ * @method setupInitialScrollValues
+ * Configura los valores iniciales de los controles deslizantes.
+ * @returns {void}
  */
 const setupInitialScrollValues = () => {
   // Cuerpo 1
@@ -181,7 +188,9 @@ const setupInitialScrollValues = () => {
 };
 
 /**
- * @method Añade los listeners a los controles deslizantes para actualizar las posiciones de los cuerpos.
+ * @method addScrollListeners
+ * Añade los listeners a los controles deslizantes para actualizar las posiciones de los cuerpos.
+ * @returns {void}
  */
 const addScrollListeners = () => {
   // Cuerpo 1
@@ -243,7 +252,9 @@ const addScrollListeners = () => {
 };
 
 /**
- * @method Función principal de animación.
+ * @method animate
+ * Función de animación principal del renderizador de Three.js.
+ * @returns {void}
  */
 const animate = () => {
   requestAnimationFrame(animate);
@@ -258,7 +269,9 @@ const animate = () => {
 };
 
 /**
- * @method Evento de reinicio de la simulación.
+ * @method addButtonListeners
+ * Añade los listeners a los botones para controlar la simulación.
+ * @returns {void}
  */
 document.getElementById("reset-button").addEventListener("click", () => {
   simulationActive = false;
@@ -364,6 +377,7 @@ document.getElementById("simulator-button").addEventListener("click", () => {
 
 /**
  * @method Inicialización al cargar el DOM.
+ * @returns {void}
  */
 document.addEventListener("DOMContentLoaded", () => {
   setupInitialScrollValues();

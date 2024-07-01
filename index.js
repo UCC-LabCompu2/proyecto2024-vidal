@@ -12,9 +12,9 @@ class Planeta {
    * @param {THREE.Vector3} position - La posición inicial del planeta.
    * @param {number} scale - La escala del planeta.
    * @param {THREE.Scene} scene - La escena de Three.js.
-   * @param {number} orbitRadius 
+   * @param {number} orbitRadius - El radio de la órbita.
    * @param {number} direction - La dirección de la órbita.
-   * @param {string} color 
+   * @param {string} color - El color del planeta.
    */
   constructor(position, scale, scene, orbitRadius, direction, color) {
     this.scene = scene;
@@ -43,10 +43,11 @@ class Planeta {
   }
 
   /**
-   * @method Actualiza la órbita del planeta.
+   * @method actualizarOrbita Actualiza la órbita del planeta.
    * @param {number} angleOffset - El desplazamiento angular de la órbita.
    * @param {number} speed - La velocidad de la órbita.
    * @param {number} amplitude - La amplitud de la órbita.
+   * @return {void}
    */
   actualizarOrbita(angleOffset, speed, amplitude) {
     const angle = Date.now() * speed * 0.001 + angleOffset;
@@ -69,7 +70,8 @@ class Planeta {
 }
 
 /**
- * @method Inicializa la escena de Three.js, la cámara, el renderizador y los controles de órbita.
+ * @method init Inicializa la escena de Three.js, la cámara, el renderizador y los controles de órbita.
+ * @return {void}
  */
 const init = () => {
   scene = new THREE.Scene();
@@ -209,7 +211,9 @@ const init = () => {
 };
 
 /**
- * @method Anima la escena de Three.js.
+ * @method animate
+ * la escena de Three.js.
+ * @return {void}
  */
 const animate = () => {
   requestAnimationFrame(animate);
